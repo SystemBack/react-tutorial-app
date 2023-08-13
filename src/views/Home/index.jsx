@@ -1,13 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-import Navbar from '../../components/Navbar'
-import Events from '../../components/Events'
+import Navbar from '../../components/Navbar';
+import Events from '../../components/Events';
 import useEventsData from "../../hooks/useEventsData";
-import styles from './home.module.css'
+import styles from './home.module.css';
+import useEventsResults from "../../state/useEventsResults";
 
 
 const Home = (  ) => {
-    const { events, isLoading, error, fetchEvents, page } = useEventsData();
+    const { data, isLoading, error, fetchEvents } = useEventsResults();
+    const events = data?._embedded?.events || [];
+    const page =data?.page || [];
     const [searchTerm, setSearchTerm] = useState('');
     const containerRef = useRef();
     useEffect( (  ) => {
@@ -20,7 +23,7 @@ const Home = (  ) => {
     }
 
     const handlePageChange = ( page ) => {
-        fetchEvents(`&keyword=${searchTerm}&page=${page.selected}`)
+        fetchEvents(`&keyword=${searchTerm}&page=${page.selected}`);
     }
 
     const renderEvents = () =>  {

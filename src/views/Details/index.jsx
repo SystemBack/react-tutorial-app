@@ -9,7 +9,6 @@ const Details = (  )  => {
     const [data, setData] = useState({});
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
-    console.log(import.meta.env)
 
     useEffect((  ) => {
         const fetchEventDetail = async () => {
@@ -59,7 +58,7 @@ const Details = (  )  => {
                     <p className={styles.eventInfo}>{data.pleaseNote}</p>
                     <p className={styles.eventDate}>Price ranges {data.priceRanges?.[0].min} - {data.priceRanges?.[0].min} {data.priceRanges?.[0].currency}</p>
                 </div>
-                <a href={data.url} target="_blank" rel="noreferrer"><button type="button">Buy a ticket!</button></a>
+                <a href={data.url}><button type="button">Buy a ticket!</button></a>
             </div>
         );
     }
