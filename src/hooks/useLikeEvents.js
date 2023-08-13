@@ -1,8 +1,8 @@
 import { set } from "date-fns";
 import { useState } from "react";
+import { STORAGE_KEY } from "../utils/constants";
 
 
-const STORAGE_KEY = 'likedEvents';
 const checkIsLiked = (eventId) => {
     const likedEvents = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 

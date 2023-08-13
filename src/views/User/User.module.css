@@ -1,0 +1,32 @@
+span {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 2px;
+}
+
+.tabContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.tabActivated {
+    background: #fff;
+    color: black;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.tab:hover {
+    background: #fff;
+    color: black;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.home {
+    color: #fff;
+    text-decoration: none;
+    font-size: x-large;
+    margin: 0px 10px;
+    font-weight: 900;
+}

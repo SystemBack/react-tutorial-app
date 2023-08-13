@@ -1,5 +1,6 @@
 import { useState, forwardRef } from "react";
 import styles from './Navbar.module.css'
+import { Link } from "react-router-dom";
 
 const Navbar = forwardRef(({ onSearch }, ref) => {
     const[search, setSearch] = useState('');
@@ -17,7 +18,7 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
     return (
         <div ref={ref} className={styles.searchContainer}>
             <div className={styles.searchQuestion}>
-                <p>Do you want to know if some event is coming son?</p>
+                <p>Do you want to know if some event is coming soon?</p>
             </div>
             <div className={styles.searchInput}>
                 <input
@@ -27,6 +28,16 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
                     value={search}
                     onKeyUp={handleInputKeyDown}
                 />
+                <Link
+                    to="/user/my-info"
+                    style={{
+                        marginLeft: 24,
+                        color: '#fff',
+                        textDecoration: 'none',
+                    }}
+                >
+                    My account
+                </Link>
             </div>
         </div>
     );

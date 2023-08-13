@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import ReactPaginate from "react-paginate";
 import Navbar from '../../components/Navbar';
 import Events from '../../components/Events';
@@ -9,8 +9,8 @@ import useEventsResults from "../../state/useEventsResults";
 
 const Home = (  ) => {
     const { data, isLoading, error, fetchEvents } = useEventsResults();
-    const events = data?._embedded?.events || [];
-    const page =data?.page || [];
+    const events = useMemo( () => data?._embedded?.events || [], [data?._embedded]);
+    const page = useMemo( () => data?.page || [], [data?.page]);
     const [searchTerm, setSearchTerm] = useState('');
     const containerRef = useRef();
     useEffect( (  ) => {
@@ -22,9 +22,10 @@ const Home = (  ) => {
         fetchEvents(`&keyword=${term}`);
     }
 
-    const handlePageChange = ( page ) => {
+    const handlePageChange = useCallback(( page ) => {
         fetchEvents(`&keyword=${searchTerm}&page=${page.selected}`);
-    }
+        set
+    }, [searchTerm, fetchEvents]);
 
     const renderEvents = () =>  {
         if( error ) {

@@ -1,0 +1,31 @@
+.myInfoContainer {
+    margin-top: 15px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 10px 15px;
+    padding: 5px;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    margin: 5px 15px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.myInfoContainer > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

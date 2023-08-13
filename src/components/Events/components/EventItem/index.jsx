@@ -9,13 +9,15 @@ import useLikeEvents from '../../../../hooks/useLikeEvents';
 const EventItem = ({ id, info, name, image, onEventClick }) => {
     const { isLiked, toggleEventLike } = useLikeEvents(id);
     const navigate = useNavigate();
+
     const handleSeeMoreClick = (e) => {
         e.stopPropagation();
         onEventClick(id);
         navigate(`details/${id}`)
     }
+
     const handleHeartClick = () => {
-        toggleEventLike();
+        toggleEventLike()
     }
 
     return(
