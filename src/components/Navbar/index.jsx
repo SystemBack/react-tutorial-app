@@ -20,7 +20,7 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
                 <p>Do you want to know if some event is coming son?</p>
             </div>
             <div className={styles.searchInput}>
-                <input 
+                <input
                     className={styles.search}
                     placeholder="Search the event."
                     onChange={handleInputChange}

@@ -1,15 +1,12 @@
-import useEventsData from "../../hooks/useEventsData";
-
 import EventItem from "./components/EventItem";
 
 
 
-const Events = ({ searchTerm }) => {
-    const { events, isLoading, error } = useEventsData();
+const Events = ({ searchTerm, events }) => {
      const handleEventItemClick = (e, id) => {
         console.log(id);
     }
-    const renderEvents = () => {
+    const renderItems = () => {
         let eventsFiltered = events;
 
         if ( searchTerm.length > 0 ) {
@@ -28,19 +25,11 @@ const Events = ({ searchTerm }) => {
         ));
     }
 
-    if(error) {
-        return <h3>Something when wrong :(</h3>
-    }
-
-    if(isLoading) {
-        return <h4>Loading...</h4>
-    }
-
     return(
         <div>
             <h1>
                 Events
-                {renderEvents()}
+                { renderItems() }
             </h1>
         </div>
     );
